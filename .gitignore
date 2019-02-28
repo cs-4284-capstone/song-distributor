@@ -5,6 +5,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Locks
+yarn.lock
+
+# Who knows
+package.json
+
 # Runtime data
 pids
 *.pid
@@ -59,3 +65,9 @@ typings/
 
 # next.js build output
 .next
+
+# python
+*.pyc
+
+# email credentials, do not want to read into git
+email_credentials.txt
