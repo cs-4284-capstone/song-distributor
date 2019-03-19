@@ -10,10 +10,13 @@ import ssl
 import smtplib
 import configparser
 
-def get_message(links):
+def get_message(links, config, src_email, dest_email):
     """format proper message"""
+    message = ''
 
-    message = 'Subject: Soundbin purchase\n\n'
+    message += f'To: {dest_email}'
+    message += f'From: {config["Email"]["name"]} <{src_email}>'
+    message += 'Subject: {config["Email"]["subject"]}\n\n'
     message += 'Thank you for purchasing music. Here are the download links:\n\n'
     message += '\n'.join(links)
 
@@ -49,7 +52,7 @@ def main():
     files_config = config['Files']
 
     links = links_from_songs(songs, files_config)
-    message = get_message(links)
+    message = get_message(links, config, src_email, dest_email)
 
     # load email credentials
     with open('email_credentials.txt', 'r') as f:
