@@ -71,3 +71,4 @@ typings/
 
 # email credentials, do not want to read into git
 email_credentials.txt
+song_emailer/songs/*
